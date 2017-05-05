@@ -1,0 +1,46 @@
+﻿@model PhotographerSite.Models.Content
+
+
+<h1 class="mrL10">
+    @Model.Title
+</h1>
+
+
+    <div id="slider" class="flexslider col-md-12">
+        <ul class="slides">
+            @for (int i = 0; i < 30; i++)
+            {
+
+
+                foreach (var image in Model.ContentPictureMappings)
+                {
+                    <li>
+                        <img class="sizeImage60Prc centerImage" src="/@image.ImagePath" alt=@image.ImgAlt />
+
+                    </li>
+
+                }
+            }
+        </ul>
+    </div>
+
+
+    <div id="carousel" class="flexslider col-md-12 mrT30">
+        <ul class="slides">
+            @for (int i = 0; i < 30; i++)
+            {
+
+                foreach (var image in Model.ContentPictureMappings)
+                {
+                    <li>
+                        <img class="sizeImage60Prc centerImage" src="/@image.ImagePath" alt=@image.ImgAlt />
+
+                    </li>
+                }
+            }
+            <!-- items mirrored twice, total of 12 -->
+        </ul>
+    </div>
+
+
+

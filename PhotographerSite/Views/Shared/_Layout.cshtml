@@ -1,0 +1,127 @@
+﻿@using PhotographerSite.Helpers
+
+
+<!DOCTYPE html>
+
+<html class="no-js">
+
+
+<head>
+
+    <link href="~/Content/FxSlider/demo.css" rel="stylesheet" />
+ 
+    <link rel="stylesheet" href="/Content/FxSlider/flexslider.css" type="text/css" media="screen" />
+    <script defer src="~/Content/FxSlider/jquery.flexslider.js"></script>
+    <!-- Modernizr -->
+    <script src="~/Content/FxSlider/modernizr.js"></script>
+    <!-- Syntax Highlighter -->
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/south-street/jquery-ui.css" id="theme">
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
+    <script defer src="~/Content/FxSlider/demo.js"></script>
+    <link rel="stylesheet" href="~/Content/themes/reset.css"/>
+    <script src="~/Content/Jquery/jquery-1.8.2.min.js"></script>
+    @*<link href="~/Content/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/Content/themes/style.css"/>
+    <script src="~/Content/dist/js/bootstrap.min.js"></script>
+    @*<script src="~/Content/jquery.bxslider/jquery.bxslider.min.js"></script>*@
+    <link href="~/Content/dist/css/bootstrap.css" rel="stylesheet">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="robots" content="index, follow"/>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //$('#mainSlider').bxSlider({
+            //    pagerCustom: '#bx-pager'
+            //});
+            //$('#bx-page1r').bxSlider({
+            //    pager: false,
+            //    autoControls: true,
+            //    pause: 5000,
+            //    hideControlOnEnd: true,
+            //    minSlides: 5,
+            //    maxSlides: 5,
+            //    slideWidth: 200,
+            //    slideMargin: 10,
+            //    infiniteLoop: false
+            //});
+            $(function() {
+               
+                $('.menu ul').hide();
+             
+                $('.menu >li').hover(
+            
+                function() {
+                  
+                    $(this).find('ul').show();
+                 
+                },
+              
+                function() {
+                 
+                    $(this).find('ul').hide();
+                 
+                }
+               );
+              
+            })
+            $('#fullSizeSlider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false
+            });
+            $('#carousel').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                itemWidth: 210,
+                itemMargin: 5,
+                asNavFor: '#slider'
+            });
+
+            $('#slider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                sync: "#carousel"
+            });
+        });
+
+    </script>
+
+    <title>
+        @Html.PhoSiteDescriptions("Title")
+    </title>
+    <meta name="description" content="Düğün Fotoğrafçısı, Serhan Serter Photography. Mutluluklarınızla dolu düğün gününüzün size özel hikayesini fotoğraflarla yazıyoruz."/>
+    <meta name="keywords" content="düğün fotoğrafçısı, Serhan Serter, düğün fotoğrafı, düğün fotoğrafçıları, düğün fotoğrafları, wedding photographer, istanbul wedding photographer, wedding photographer istanbul, nişan fotoğrafı, düğün videosu, profesyonel fotoğrafçı, düğün, evlilik, nişan, nikah, fotoğraf çekimleri"/>
+</head>
+<body>
+
+
+        <div class="solyaka">
+            <div id="logo">
+                <a href="@Url.Action("Index","Home")" title="Serhan Serter">
+
+                    <img src="~/Content/Img/menu_logo.png" width="169px" alt="Serhan Serter Logo" />
+                </a>
+
+            </div>
+            <nav>
+                @Html.Action("MenuResult", "Content")
+            </nav>
+        </div>
+
+        <div class="content">
+            @RenderBody()
+        </div>
+        <!-- jQuery -->
+</body>
+
+<!-- Mirrored from www.serhanserter.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 18:43:45 GMT -->
+</html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/jquery.image-gallery.min.js"></script>

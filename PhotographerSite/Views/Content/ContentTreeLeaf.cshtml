@@ -1,0 +1,23 @@
+﻿<div id="links" class="col-md-12 mrT30 container">
+    @foreach (var image in Model.ContentPictureMappings)
+    {
+        <div class="row top5">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div id="carousel" class="col-md-4 mrT30" data-dialog>
+                    <img class="sizeImage60Prc centerImage" src="/@image.ImagePath" alt=@image.ImgAlt />
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div id="blueimp-gallery-dialog" data-show="fade" data-hide="fade">
+    <!-- The gallery widget  -->
+    <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+        <div class="slides"></div>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="play-pause"></a>
+    </div>
+</div>

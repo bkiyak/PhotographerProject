@@ -1,0 +1,46 @@
+﻿@using PhotographerSite.Models
+@model List<PhotographerSite.Models.Menu>
+@{
+    ViewBag.ParentId = 0;
+}
+<ul class="menu">
+    @ShowTree(Model)
+
+    @helper ShowTree(IEnumerable<Menu> menus)
+    {
+foreach (var item in menus.Where(w => w.ParentId == ViewBag.ParentId))
+{
+      
+    if (menus.Any(w => w.ParentId == item.MenuId))
+    {
+    <li>
+        <a href="#" class="hasChild">@item.Name</a>
+        <ul class="altmenu">
+
+            @{
+                ViewBag.ParentId = item.MenuId;
+            }
+
+            @ShowTree(menus.Where(s => s.ParentId == item.MenuId))
+
+            @{
+                ViewBag.ParentId = 0;
+            }
+
+
+        </ul>
+        </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.RouteUrl("Content", new { url = item.MenuUrl })">@item.Name</a>
+                    </li>
+                    }
+
+
+                }
+}
+
+                                    </ul>
+

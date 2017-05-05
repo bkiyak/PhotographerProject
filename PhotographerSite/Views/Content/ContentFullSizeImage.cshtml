@@ -1,0 +1,23 @@
+﻿@model PhotographerSite.Models.Content
+
+
+<div id="slider" class="flexslider">
+    <ul class="slides">
+        @for (int i = 0; i < 30; i++)
+        {
+  
+       
+        foreach (var image in Model.ContentPictureMappings)
+        {
+            <li>
+                <img class="sizeImage100Prc " src="/@image.ImagePath" alt=@image.ImgAlt />
+
+            </li>
+
+        }
+        }
+    </ul>
+</div>
+
+
+
